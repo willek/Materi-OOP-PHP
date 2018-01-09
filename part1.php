@@ -96,12 +96,15 @@
  * Apabila kita mengakses undeclared property pada sebuah object maka PHP akan menampiklan E_NOTICE dengan pesan Undefined Property.
  * Hal tersebut tidak terlalu berpengaruh pada program apabila tidak ada error handling yang mematikan proses ketika E_NOTICE di-throwkan oleh PHP.
  * Contoh:
+ *
  * echo $restoran->manajer;
  * echo '\ntest';
+ *
  * Output:
  * test
  * (error di console)
  * PHP Notice:  Undefined property: Restoran::$manajer in E:\Project\Materi-OOP-PHP\part1.php on line ..
+ *
  * Disini saya mengakses property manajer, padahal dalam object tersebut tidak ada property manajer,
  * sehingga PHP akan memberikan E_NOTICE Undefined property. Walaupun tampak ada peringatan, akan tetapi program masih berjalan,
  * hal ini terbukti dengan adanya tulisan test dalam outputnya.
@@ -109,10 +112,12 @@
  * Untuk tindakan preventif menghindari E_NOTICE kalau kita memiliki class yang sudah sangat rumit,
  * maka hendaknya kita melakukan checking dengan isset.
  * Contoh:
+ *
  * if (isset($restoran->manajer)) {
  *  echo 'manajer';
  * }
  * echo 'test';
+ *
  * Output:
  * test
  *
@@ -122,21 +127,27 @@
  *
  * Apa yang terjadi apabila method yang tidak defined pada sebuah object diakses? Hal yang terjadi adalah Fatal Error. Fatal Error akan menghentikan jalannya program.
  * Contoh:
+ *
  * $restoran->tutup();
+ *
  * Output:
  * (error di console)
  * PHP Fatal error: Uncaught Error: Call to undefined method Resoran::tutup() in E:\Project\Materi-OOP-PHP\part1.php:..
+ *
  * Disini terjadi Fatal Error karena mengakses sebuah method yang tidak terdefinisi pada sebuah object.
  * Apabila suatu ketika kita dihadapkan dengan kasus seperti ini maka tindakan preventif apa yang harus kita lakukan untuk mencegah terjadinya Fatal Error?
  * Solusinya ada 2.
  * Pertama: pengecekan method menggunakan function is_callable.
  * is_callable sendiri adalah sebuah function yang akan mereturn boolean true apabila parameternya diberi sesuatu yang invokeable.
+ *
  * if (is_callable([$restoran, "tutup"])) {
- *  $restoran->tutup();
- *  }
+ *    $restoran->tutup();
+ * }
  * echo "test\n";
+ *
  * Output:
  * test
+ *
  * Disini tampak tidak ada error sama sekali.
  * Karena memang pada alur programnya tidak menjalankan method yang undefined. Hal tersebut berkat adanya tidakan preventif dari is_callable.
  *
@@ -144,13 +155,16 @@
  * Pada PHP Versi 7 ke atas semua Fatal Error di-throw-kan oleh sebuah class bawaan PHP yang dinamakan class Error.
  * Kita dapat menangkap class tersebut dengan try and catch.
  * Contoh:
+ *
  * try {
  *  $restoran->tutup();
  * } catch (Error $e) {
  *  echo get_class($e);
  * }
+ *
  * Output:
  * Error
+ *
  * Alur dari try and catch pada code tersebut :
  * 1. Code dalam lingkup try (dibatasi oleh curly braces atau kurung kurawal) dijalankan.
  * 2. Pada catch Error maksudnya adalah menangkap object dari class Error apabila sebuah
@@ -165,18 +179,23 @@
   * Instance
   * Dalam PHP, instance adalah nama lain dari sebuah object.
   * Contoh:
+  *
   * $restoran = new Restoran;
+  *
   * Dalam hal ini, variable $restoran adalah sebuah object yang terbentuk dari class Restoran.
   * Maka dapat disebut "$restoran adalah instance dari restoran".
   * Untuk mengecek apakah $restoran adalah sebuah instance dari restoran, dapat kita gunakan keyword instanceof.
   * Contoh:
+  *
   * if ($restoran instanceof Restoran) {
   *   echo "variable \$restoran adalah instance dari Restoran\n";
   * } else {
   *   echo "variable \$restoran bukan instance dari Restoran\n";
   * }
+  *
   * Output:
   * variable $restoran adalah instance dari Restoran
+  *
   * '$restoran instanceof Restoran' bernilai true, apabila $restoran adalah object yang dibentuk dari class Restoran.
   *
   * Variable $this
