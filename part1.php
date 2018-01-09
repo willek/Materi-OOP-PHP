@@ -266,8 +266,19 @@
  *
  * Output:
  * index A
+ *
+ * Ok, disini tampak jelas sekali bahwa class B tidak memiliki method index(). Akan tetapi object yang dibentuk dari class B
+ * dapat mengakses method index(), karena class B adalah keturunan dari class A dan dalam class A terdeklarasi method index.
+ * Jadi intinya, anak class (child class) mewarisi property dan method pada induk class (parent class).
+ *
+ * Class A {
+ *    public $nilai = 100;
+ * }
+ *
+ * Class B extends A {
+ *
+ * }
+ *
+ * $tes = new B;
+ * echo $tes->nilai;
  **/
-
- Class A {
-   public function
- }

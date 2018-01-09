@@ -3,7 +3,7 @@ Rangkuman dari tulisan (kulgram) Ammar Faizi - OOP PHP
 
 ## Daftar Materi
 
-### Part 1
+### [Part 1](https://github.com/willek/Materi-OOP-PHP/blob/master/part1.php)
 1. Pengenalan Object Oriented Programming PHP
 2. Apa itu class?
 3. Apa itu property?
