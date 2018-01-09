@@ -298,6 +298,11 @@
  *
  * }
  *
- * $tes = new B;
- * echo $tes->nilai;
+ * $test = new B;
+ * echo $test->nilai;
+ *
+ * Output:
+ * 100
+ *
+ * Dari output ini terbukti bahwa property nilai pada class A diwariskan kepada class B.
  **/
