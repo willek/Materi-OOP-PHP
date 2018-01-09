@@ -29,7 +29,7 @@
 
    //Method (Apapun yang dapat dilakukan oleh sebuah class)
    function buka(){
-     echo "Restoran dibuka\n";
+     echo "Restoran dibuka";
    }
 
  }
@@ -98,7 +98,7 @@
  * Contoh:
  *
  * echo $restoran->manajer;
- * echo '\ntest';
+ * echo 'test';
  *
  * Output:
  * test
@@ -143,7 +143,7 @@
  * if (is_callable([$restoran, "tutup"])) {
  *    $restoran->tutup();
  * }
- * echo "test\n";
+ * echo "test";
  *
  * Output:
  * test
@@ -188,9 +188,9 @@
   * Contoh:
   *
   * if ($restoran instanceof Restoran) {
-  *   echo "variable \$restoran adalah instance dari Restoran\n";
+  *   echo "variable \$restoran adalah instance dari Restoran";
   * } else {
-  *   echo "variable \$restoran bukan instance dari Restoran\n";
+  *   echo "variable \$restoran bukan instance dari Restoran";
   * }
   *
   * Output:
@@ -305,4 +305,54 @@
  * 100
  *
  * Dari output ini terbukti bahwa property nilai pada class A diwariskan kepada class B.
+ **/
+
+/**
+ * Visibilitas
+ *
+ * Dalam OOP ada 3 visibilitas. Yaitu public, private dan protected.
+ * Tiap visibilitas adalah sebuah pernyataan yang diberikan pada property atau method.
+ * Maksud dari masing-masing visibilitas adalah dimanakah property atau method tersebut dapat diakses.
+ *
+ * 1. Public
+ * Visibilitas public adalah visibilitas yang menandakan sebuah property atau method dapat diakses dimanapun (bebas).
+ *
+ * Contoh:
+ *
+ * class warung {
+ *    public $jumlah_pelanggan = 100;
+ * }
+ *
+ * $warung = new warung;
+ * kita dapat mengakses property $jumlah_pelanggan disini, karena dia memiliki visibilitas public sehingga bebas diakses dimanapun.
+ * echo $resto->jumlah_pelanggan;
+ *
+ * Output:
+ * 100
+ *
+ * Akan tetapi jika kita memberikan visibilitas selain public maka $jumlah_pelanggan tidak dapat diakses di luar class.
+ *
+ * 2. Private
+ * Kegunaan visibilitas ini adalah untuk membatasi lingkup akses. Cara mengakses property dan method yang memiliki visibilitas
+ * private adalah diakses dalam classnya sendiri. Karena visibilitas private sendiri menandakan property atau method hanya dapat diakses
+ * di dalam class tersebut (sangat terbatas)
+ *
+ * Contoh:
+ *
+ * class warung {
+ *    private $jumlah_pelanggan = 100;
+ *
+ *    public function jumlah_pelanggan() {
+ *      echo $this->jumlah_pelanggan;
+ *    }
+ *
+ * }
+ *
+ * $warung = new warung;
+ * echo $warung->jumlah_pelanggan();
+ *
+ * Output:
+ * 100
+ *
+ * Disini saya mengakses property jumlah_pelanggan dari dalam class.
  **/
