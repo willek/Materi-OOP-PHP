@@ -325,7 +325,7 @@
  *
  * $warung = new warung;
  * kita dapat mengakses property $jumlah_pelanggan disini, karena dia memiliki visibilitas public sehingga bebas diakses dimanapun.
- * echo $resto->jumlah_pelanggan;
+ * echo $warung->jumlah_pelanggan;
  *
  * Output:
  * 100
@@ -355,4 +355,133 @@
  * 100
  *
  * Disini saya mengakses property jumlah_pelanggan dari dalam class.
+ *
+ * 3. Protected
+ * Lingkup visibilitas protected hanya dapat diakses oleh class itu sendiri dan seluruh keturunannya.
+ * Contoh:
+ *
+ *  class A {
+ *    protected $angka = 50;
+ *  }
+ *
+ *  class B extends A {
+ *    public function test() {
+ *      echo $this->angka;
+ *    }
+ *  }
+ *
+ * $test = new B;
+ * $test->test();
+ *
+ * Output:
+ * 50
+ *
+ * Disini dapat dilihat dengan jelas bahwa class A selaku induk class (parent class) memiliki property $angka
+ * dengan visibilitas protected. Lalu dia memiliki anak class (child class) bernama class B. Disini class B dapat
+ * mengakses seluruh property dan method pada class A yang memiliki visibilitas protected dan public.
+ **/
+
+/**
+ * Static
+ *
+ * Dalam OOP PHP pemberian sifat static pada property atau method akan membuat property atau method tersebut
+ * melekat pada classnya, sehingga dapat diakses tanpa membuat object terlebih dahulu.
+ * Contoh:
+ *
+ *  Class A {
+ *    static public $nilai = 100;
+ *  }
+ *
+ * Disini Class A memiliki property $nilai yang bersifat static. Maka dia akan melekat pada class tersebut.
+ * Untuk membahas static secara mendalam ada 3 keyword yang kerap kali digunakan dalam sifat static ini.
+ * Yaitu parent, self, dan static.
+ **/
+
+/**
+ * Parent
+ *
+ * Parent adalah keyword untuk mengakses property atau method yang dimiliki oleh induk class (parent class)
+ * dari anak class (child class).
+ *
+ * Contoh:
+ *
+ * Class A {
+ *   protected static function aaa() {
+ *     echo 123;
+ *   }
+ * }
+ *
+ * Class B extends A {
+ *   public static function bbb() {
+ *     Parent::aaa();
+ *   }
+ * }
+ *
+ * B::bbb();
+ *
+ * Output:
+ * 123
+ *
+ * Tampak jelas bahwa saya menjalankan static method yang melekat pada class B.
+ * Di dalam method tersebut mengakses Parent::aaa() yang berarti mengakses method aaa yang dimiliki oleh induk classnya (parent class).
+ * Disini class B selaku anak class (child class)
+ **/
+
+/**
+ * Self
+ *
+ * Self adalah keyword untuk mengakses dirinya sendiri. Mirip seperti $this, akan tetapi self bukanlah sebuah object.
+ * dia melekat pada classnya bagaikan blueprint saja. Hampir sama dengan keyword static, dia bekerja pada sesuatu yang override
+ * Contoh:
+ *
+ *  Class A {
+ *    private static $nilai = 100;
+ *
+ *    public function test() {
+ *      echo Self::$nilai;
+ *    }
+ *  }
+ *
+ *  A::test();
+ *
+ * Output:
+ * 100
+ *
+ * Class A memiliki property yang private dan bersifat static diakses di dalam classnya sendiri, tepatnya pada method test.
+ **/
+
+/**
+ * T_PAAMAYIM_NEKUDOTAYIM
+ *
+ * T_PAAMAYIM_NEKUDOTAYIM adalah simbol untuk mengakses property atau method secara static.
+ * yang disebut dengan T_PAAMATIM_NEKUDOTAYIM adalah symbol double colon. ::
+ *
+ * Contoh:
+ *
+ *  Class A {
+ *    static public $nilai = 100;
+ *  }
+ *
+ *  echo A::$nilai;
+ *
+ * Output:
+ * 100
+ *
+ * Untuk mengakses property maupun method yang bersifat static tidak perlu untuk instansiasi class. Karena static sendiri bersifat melekat pada classnya.
+ * Sehingga untuk mengakses property atau method yang static tidak perlu membuat object.
+ *
+ * Contoh method yang static:
+ *
+ * Class A {
+ *   public static function test() {
+ *     echo 123;
+ *   }
+ * }
+ *
+ * A::test();
+ *
+ * Output:
+ * 123
+ *
+ * Dalam method yang static kita tidak dapat mengakses variable $this. karena static melekat pada classnya, bukan pada object
  **/
