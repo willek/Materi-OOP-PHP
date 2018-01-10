@@ -413,7 +413,7 @@
  *
  * Class B extends A {
  *   public static function bbb() {
- *     Parent::aaa();
+ *     parent::aaa();
  *   }
  * }
  *
@@ -423,7 +423,7 @@
  * 123
  *
  * Tampak jelas bahwa saya menjalankan static method yang melekat pada class B.
- * Di dalam method tersebut mengakses Parent::aaa() yang berarti mengakses method aaa yang dimiliki oleh induk classnya (parent class).
+ * Di dalam method tersebut mengakses parent::aaa() yang berarti mengakses method aaa yang dimiliki oleh induk classnya (parent class).
  * Disini class B selaku anak class (child class)
  **/
 
@@ -438,7 +438,7 @@
  *    private static $nilai = 100;
  *
  *    public function test() {
- *      echo Self::$nilai;
+ *      echo self::$nilai;
  *    }
  *  }
  *
@@ -484,4 +484,10 @@
  * 123
  *
  * Dalam method yang static kita tidak dapat mengakses variable $this. karena static melekat pada classnya, bukan pada object
+ **/
+
+/**
+ * Singleton Pattern
+ *
+ *
  **/
