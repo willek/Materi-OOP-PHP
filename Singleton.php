@@ -22,7 +22,6 @@ Class A {
 }
 
 $test = A::getInstance();
-
 $test2 = A::getInstance();
 $test3 = A::getInstance();
 
