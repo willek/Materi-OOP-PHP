@@ -489,5 +489,7 @@
 /**
  * Singleton Pattern
  *
+ * lihat pada:
+ * https://github.com/willek/Materi-OOP-PHP/blob/master/Singleton.php
  *
  **/
